@@ -1,32 +1,28 @@
-#!usr/bin/python3
-"""
-Lockboxes
-method that determines if all the boxes can be opened
-"""
-
-from collections import deque
+#!/usr/bin/python3
+"""Solves the lock boxes puzzle using Depth-First Search"""
 
 def canUnlockAll(boxes):
     """
-    determines if all boxes can be opened
-    Args:
-    boxes: A list where each element is a list of keys
-    contained in that box
-    returns:
-    bool: True if all boxes can be opened and false if otherwise
-    """
+    Determines if all the boxes can be opened.
 
+    Args:
+    boxes: A list where each element is a list of keys contained in that box.
+
+    Returns:
+    bool: True if all boxes can be opened, False otherwise.
+    """
     n = len(boxes)
     opened = [False] * n
     opened[0] = True
-    queue = deque([0])
 
-    while queue:
-        current_box = queue.popleft()
-        for key in boxes[current_box]:
+    def dfs(box_index):
+        """Recursive helper function to perform DFS"""
+        for key in boxes[box_index]:
             if key < n and not opened[key]:
                 opened[key] = True
-                queue.append(key)
+                dfs(key)
+
+    dfs(0)
 
     return all(opened)
 
