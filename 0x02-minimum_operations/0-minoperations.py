@@ -14,7 +14,7 @@ def minOperations(n):
     n (int): The number of characters desired.
 
     Returns:
-    int: The minimum number of operations required, or 0 if n cannot be achieved.
+    int: The min number of operations required, or 0 if n can't be achieved.
     """
     if n <= 1:
         return 0
