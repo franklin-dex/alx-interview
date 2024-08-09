@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Solves the lock boxes puzzle using an iterative DFS approach"""
 
+
 def canUnlockAll(boxes):
     """
     Determines if all the boxes can be opened.
