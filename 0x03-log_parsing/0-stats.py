@@ -19,7 +19,7 @@ try:
     for line in sys.stdin:
         parts = line.split()
         if len(parts) < 7:
-            continue  """Skip lines that don't match the format"""
+            continue
 
         """Extract status code and file size"""
         status = parts[-2]
@@ -27,7 +27,7 @@ try:
             size = int(parts[-1])
             total_size += size
         except ValueError:
-            continue  """Skip if the size is not an integer"""
+            continue
 
         if status in status_codes:
             status_codes[status] += 1
